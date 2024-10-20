@@ -10,5 +10,6 @@ mounting reference: https://iroboteducation.github.io/create3_docs/hw/mechanical
 
 https://turtlebot.github.io/turtlebot4-user-manual/mechanical/payloads.html
 
-turtlebot 4 IP address under University of Washington Wifi: 10.42.0.1
+laptop ip: 10.19.232.168
+
 
