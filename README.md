@@ -10,6 +10,7 @@ mounting reference: https://iroboteducation.github.io/create3_docs/hw/mechanical
 
 https://turtlebot.github.io/turtlebot4-user-manual/mechanical/payloads.html
 
-laptop ip: 10.19.232.168
-
+### Neworks
+1. Access point mode (always use this mode): On your PC, connect to the Turtlebot4 Wi-Fi network. The password is also Turtlebot4.
+2. 
 
