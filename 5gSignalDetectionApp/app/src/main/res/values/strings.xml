@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">5gSignalDetectionApp</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="initializing">Initializing...</string>
+</resources>
