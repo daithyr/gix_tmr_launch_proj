@@ -13,4 +13,11 @@ https://turtlebot.github.io/turtlebot4-user-manual/mechanical/payloads.html
 ### Neworks
 1. Access point mode (always use this mode): On your PC, connect to the Turtlebot4 Wi-Fi network. The password is also Turtlebot4.
 
-
+## HiWonder
+Rtab create map:
+```
+sudo systemctl stop start_app_node.service
+roslaunch jetauto_slam slam.launch slam_methods:=rtabmap
+roslaunch jetauto_slam rviz_slam.launch slam_methods:=rtabmap
+roslaunch jetauto_peripherals teleop_key_control.launch
+```
