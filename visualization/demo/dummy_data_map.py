@@ -2,7 +2,7 @@ import json
 import numpy as np
 
 lat_min, lat_max = 47.6101, 47.6131
-lon_min, lon_max = -122.2121, -122.2101
+lon_min, lon_max = -122.2091, -122.2011
 
 lat_resolution = 60
 lon_resolution = 40
@@ -14,8 +14,8 @@ lat_grid, lon_grid = np.meshgrid(lat_values, lon_values)
 points = np.c_[lat_grid.ravel(), lon_grid.ravel()]
 
 def generate_signal_strength(lat, lon):
-    pattern = (np.sin(lat / 40) * np.cos(lon / 100) + 1) / 2  
-    noise = np.random.uniform(-0.05, 0.05)       
+    pattern = (np.sin(lat / 4) * np.cos(lon / 10) + 1) / 2  
+    noise = np.random.uniform(-0.3, 0.3)       
     return max(0, min(1, pattern + noise))         
 
 data = [

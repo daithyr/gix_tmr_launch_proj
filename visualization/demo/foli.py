@@ -2,14 +2,14 @@ import folium
 import json
 from matplotlib import cm, colors
 
-
 with open('../data/raw_map.json', 'r') as file:
     data = json.load(file)
 
-center_x = sum([point['latitude'] for point in data]) / len(data)
-center_y = sum([point['longitude'] for point in data]) / len(data)
+default_lat = 47.6131
+default_lon = -122.2121
+zoom_level = 17 
 
-mymap = folium.Map(location=[center_y, center_x], zoom_start=15)
+mymap = folium.Map(location=[default_lat, default_lon], zoom_start=zoom_level)
 
 
 colormap = cm.get_cmap('RdYlGn')
@@ -20,7 +20,7 @@ for point in data:
     color = colors.rgb2hex(colormap(norm(signal_strength))) 
     folium.CircleMarker(
         location=[point['latitude'], point['longitude']],
-        radius=signal_strength * 10,
+        radius=5 + signal_strength * 2,
         color=color,
         fill=True,
         fill_color=color,
