@@ -1,11 +1,11 @@
 import json
 import numpy as np
 
-lat_min, lat_max = 47.6101, 47.6201
-lon_min, lon_max = -122.2101, -122.2001
+lat_min, lat_max = 47.6101, 47.6131
+lon_min, lon_max = -122.2121, -122.2101
 
-lat_resolution = 600
-lon_resolution = 400
+lat_resolution = 60
+lon_resolution = 40
 
 lat_values = np.linspace(lat_min, lat_max, lat_resolution)
 lon_values = np.linspace(lon_min, lon_max, lon_resolution)
