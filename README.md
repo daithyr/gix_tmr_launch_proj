@@ -18,7 +18,7 @@
 
 ## HiWonder Setup
 
-### RTAB-Map Creation
+### RTAB-Map
 To create a map using RTAB-Map, run the following commands:
 
 ```bash
@@ -28,6 +28,21 @@ roslaunch jetauto_slam rviz_slam.launch slam_methods:=rtabmap
 roslaunch jetauto_peripherals teleop_key_control.launch
 ```
 
+if encountering permission issues, run the following commands:
+
+```bash
+sudo chmod 666 /dev/ttyTHS1
+```
+
+To navigate using the created map, run the following commands:
+
+```bash
+sudo systemctl stop start_app_node.service
+roslaunch jetauto_navigation rtabmap_navigation.launch
+roslaunch jetauto_navigation rviz_rtabmap_navigation.launch
+roslaunch jetauto_navigation publish_point.launch
+```
+打开 Rtabmap_cloud 选项卡,将 Download namespace 内容修改为 robot_1/rtabmap
 ---
 
 ## Visualization Demo
