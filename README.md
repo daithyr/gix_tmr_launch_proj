@@ -30,10 +30,6 @@ roslaunch jetauto_peripherals teleop_key_control.launch
 
 ---
 
-Here’s a well-structured README section for the visualization demo:
-
----
-
 ## Visualization Demo
 
 This section explains how to visualize the 5G signal data collected by the autonomous robot on a 2D map.
