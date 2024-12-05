@@ -1,1 +1,2 @@
-*.html
+visualization/data/*.html
+.DS_Store
