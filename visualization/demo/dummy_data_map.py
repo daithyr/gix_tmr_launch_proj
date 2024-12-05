@@ -14,8 +14,8 @@ lat_grid, lon_grid = np.meshgrid(lat_values, lon_values)
 points = np.c_[lat_grid.ravel(), lon_grid.ravel()]
 
 def generate_signal_strength(lat, lon):
-    pattern = (np.sin(lat / 4) * np.cos(lon / 10) + 1) / 2  
-    noise = np.random.uniform(-0.3, 0.3)       
+    pattern = (np.sin((lat - 47) * 100)* np.cos((lon + 130) * 10) + 1) / 2  
+    noise = np.random.uniform(-0.1, 0.1)       
     return max(0, min(1, pattern + noise))         
 
 data = [
