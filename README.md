@@ -53,7 +53,9 @@ To run the visualization demo:
 1. Ensure `data.json` (signal data) and `map.jpg` (background image) are in the `data/` directory.
 2. Run the Python script:
    ```bash
-   python demo/demo.py
+   cd visualization/demo
+   # python dummy_data.py
+   python demo.py
    ```
 3. The script will display a scatter plot of 5G signal strength:
    - **Point Size**: Signal strength representation (optional: toggle uniform size).
