@@ -1,23 +1,39 @@
 # gix_tmr_launch_proj
-gix launch project -- T-mobile autonomous robot 5g signal testing for indoor enviornment
 
-## turtlebot 4 docs
-button indication: https://iroboteducation.github.io/create3_docs/hw/face/
+**GIX Launch Project:** T-Mobile Autonomous Robot for 5G Signal Testing in Indoor Environments
 
-setup instruction: https://turtlebot.github.io/turtlebot4-user-manual/setup/basic.html
+## TurtleBot 4 Documentation
 
-mounting reference: https://iroboteducation.github.io/create3_docs/hw/mechanical/
+### Key References
+- **Button Indication:** [Create 3 Button Indicators](https://iroboteducation.github.io/create3_docs/hw/face/)
+- **Setup Instructions:** [TurtleBot 4 Basic Setup Guide](https://turtlebot.github.io/turtlebot4-user-manual/setup/basic.html)
+- **Mounting Reference:**
+  - [Mechanical Overview](https://iroboteducation.github.io/create3_docs/hw/mechanical/)
+  - [Payload Mounting Guide](https://turtlebot.github.io/turtlebot4-user-manual/mechanical/payloads.html)
 
-https://turtlebot.github.io/turtlebot4-user-manual/mechanical/payloads.html
+### Networks
+1. **Access Point Mode** (Preferred Mode):  
+   - On your PC, connect to the TurtleBot4 Wi-Fi network.  
+   - The Wi-Fi password is `Turtlebot4`.
 
-### Neworks
-1. Access point mode (always use this mode): On your PC, connect to the Turtlebot4 Wi-Fi network. The password is also Turtlebot4.
+---
 
-## HiWonder
-Rtab create map:
-```
+## HiWonder Setup
+
+### RTAB-Map Creation
+To create a map using RTAB-Map, run the following commands:
+
+```bash
 sudo systemctl stop start_app_node.service
 roslaunch jetauto_slam slam.launch slam_methods:=rtabmap
 roslaunch jetauto_slam rviz_slam.launch slam_methods:=rtabmap
 roslaunch jetauto_peripherals teleop_key_control.launch
 ```
+
+---
+
+### Suggestions:
+1. Use this README in conjunction with project-specific instructions for easier reference.
+2. Add a table of contents for larger projects if necessary.
+3. Include a "Contributing" or "Issues" section if other collaborators will use this repository. 
+
