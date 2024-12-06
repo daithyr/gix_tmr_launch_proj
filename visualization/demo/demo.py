@@ -5,7 +5,7 @@ import matplotlib.image as mpimg
 equal_size = False
 use_background = False
 
-with open('../data/raw.json', 'r') as file:
+with open('../data/raw_real.json', 'r') as file:
     data = json.load(file)
 
 x = [point['x'] for point in data]
