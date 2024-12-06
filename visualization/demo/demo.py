@@ -23,7 +23,8 @@ if use_background:
     img = mpimg.imread('../data/map.jpg')
     plt.imshow(img, extent=[0, 100, 0, 100], origin='lower', aspect='auto')
 
-scatter = plt.scatter(x, y, c=signal_strength, s=sizes, cmap='viridis', alpha=0.8)
+# scatter = plt.scatter(x, y, c=signal_strength, s=sizes, cmap='viridis', alpha=0.8)
+scatter = plt.scatter(x, y, c=signal_strength, s=sizes, cmap='viridis', vmin=0, vmax=1)
 plt.colorbar(scatter, label="Signal Strength")
 plt.xlabel("X Coordinate")
 plt.ylabel("Y Coordinate")
