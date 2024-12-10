@@ -18,6 +18,18 @@
 
 ## HiWonder Setup
 
+Noname Settings
+```bash
+Host: 10.19.141.37
+Port: 4000
+```
+
+Hiwonder Login
+```bash
+Username: jetauto
+Password: hiwonder
+```
+
 ### RTAB-Map
 To create a map using RTAB-Map, run the following commands:
 
