@@ -2,8 +2,8 @@ import json
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
-equal_size = False
-use_background = False
+equal_size = True
+use_background = True
 
 with open('../data/raw_real.json', 'r') as file:
     data = json.load(file)
@@ -21,7 +21,7 @@ plt.figure(figsize=(8, 6))
 
 if use_background:
     img = mpimg.imread('../data/map.jpg')
-    plt.imshow(img, extent=[0, 100, 0, 100], origin='lower', aspect='auto')
+    plt.imshow(img, extent=[-1, 8, -2, 5], origin='lower', aspect='auto', alpha=0.8)
 
 # scatter = plt.scatter(x, y, c=signal_strength, s=sizes, cmap='viridis', alpha=0.8)
 scatter = plt.scatter(x, y, c=signal_strength, s=sizes, cmap='viridis', vmin=0, vmax=1)
