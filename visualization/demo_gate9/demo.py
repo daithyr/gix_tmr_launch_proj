@@ -23,11 +23,11 @@ else:
     sizes = [abs(s + 110) for s in signal_strength]  # Scale sizes based on signal strength
 
 # Plot configuration
-plt.figure(figsize=(8, 6))
+plt.figure(figsize=(8, 8))
 
 # Background image with transparency
 if use_background:
-    from scipy.ndimage import rotate  # 新增旋转函数导入
+    from scipy.ndimage import rotate  # Add rotation function import
     img = mpimg.imread('./data/map.jpg')
     img = rotate(img, 10, reshape=True, mode='constant', cval=255) 
     plt.imshow(img, extent=[-4, 11, -2, 13], origin='upper', aspect='auto')
@@ -36,41 +36,36 @@ if use_background:
 # plt.imsave('./data/map_rotate.jpg', img)
 
 
-# Scatter plot
+# Scatter plot with RdYlGn colormap (Red->Yellow->Green)
 scatter = plt.scatter(
-    x, y, c=signal_strength, s=sizes, cmap='viridis', alpha=1, edgecolor='gray'
+    x, y, c=signal_strength, s=sizes, cmap='RdYlGn', alpha=1, edgecolor='gray',
+    vmin=-110, vmax=-60  # Red(-110) -> Yellow(-85) -> Green(-60)
 )
 
-# Add color bar
-cbar = plt.colorbar(scatter, label="Signal Strength (dBm)")
-cbar.ax.set_title("Weak (-110) to Strong (-60)", fontsize=8)
+# Add color bar with clear labels
+cbar = plt.colorbar(scatter, label="Signal Strength (dBm)", extend='both')
+cbar.ax.set_title("Signal Strength", fontsize=10)
 
-
-# Create custom legend entries
+# Create custom legend entries with colors
 legend_elements = [
-    Line2D([0], [0], label="Weak Signal (-110 to -90 dBm)", color='none'),
-    Line2D([0], [0], label="Medium Signal (-89 to -70 dBm)", color='none'),
-    Line2D([0], [0], label="Strong Signal (-69 to -60 dBm)", color='none')
+    Line2D([0], [0], marker='o', color='w', markerfacecolor='red', markersize=10, label="Weak Signal (-110 to -90 dBm)"),
+    Line2D([0], [0], marker='o', color='w', markerfacecolor='yellow', markersize=10, label="Medium Signal (-89 to -70 dBm)"),
+    Line2D([0], [0], marker='o', color='w', markerfacecolor='green', markersize=10, label="Strong Signal (-69 to -60 dBm)")
 ]
 
 # Add the custom legend
-plt.legend(handles=legend_elements, loc="upper right", title="Signal Quality")
-
-
+plt.legend(handles=legend_elements, loc="lower right", title="Signal Quality Guide")
 
 # Choose random points to display signal strength
-for i in [24, 100, 500, 800]:
+for i in [24, 120, 150, 180, 200, 220, 250]:
     plt.text(
-        x[i], y[i], f"{signal_strength[i]:.1f} dBm", fontsize=10, ha='center', va='center', color="black"
+        x[i], y[i], f"{signal_strength[i]:.1f} dBm", fontsize=9, ha='center', va='center', color="black"
     )
 
 # Labels and Title
 plt.xlabel("X Coordinate")
 plt.ylabel("Y Coordinate")
 plt.title("2D Signal Strength Visualization (dBm)")
-
-# Grid for better visualization
-plt.grid(True, alpha=1)
 
 # Show plot
 plt.show()
