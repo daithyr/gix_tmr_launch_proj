@@ -9,7 +9,7 @@ equal_size = True
 use_background = True
 
 # Load data
-with open('./data/raw_real.json', 'r') as file:
+with open('./data/raw_real_1.json', 'r') as file:
     data = json.load(file)
 
 x = [point['x'] for point in data]
@@ -29,8 +29,12 @@ plt.figure(figsize=(8, 6))
 if use_background:
     from scipy.ndimage import rotate  # 新增旋转函数导入
     img = mpimg.imread('./data/map.jpg')
-    # img = rotate(img, 20, reshape=True, mode='constant', cval=1.0)  # 旋转20度，周围用白色(1.0)填充
-    plt.imshow(img, extent=[-2, 8, -2, 8], origin='upper', aspect='auto')
+    img = rotate(img, 10, reshape=True, mode='constant', cval=255) 
+    plt.imshow(img, extent=[-4, 11, -2, 13], origin='upper', aspect='auto')
+
+# Save rotated image
+# plt.imsave('./data/map_rotate.jpg', img)
+
 
 # Scatter plot
 scatter = plt.scatter(

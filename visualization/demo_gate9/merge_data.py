@@ -4,9 +4,9 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 
 # File paths
-odom_file = "./data/odom_data.csv"
-signal_file = "./data/5g_signal_data_new.csv" 
-output_file = "./data/raw_real.json"
+odom_file = "./data/odom_data_1.csv"
+signal_file = "./data/5G_Signal_Data_1.csv" 
+output_file = "./data/raw_real_1.json"
 
 # Read the odom data
 odom_data = pd.read_csv(odom_file)
@@ -30,16 +30,15 @@ print(signal_data.head())
 print("\nLast few rows of signal data:")
 print(signal_data.tail())
 
-# Plot timestamps for comparison
-# plt.figure(figsize=(12, 6))
-# plt.plot(odom_data['timestamp'], [1]*len(odom_data), 'b.', label='Odom Data', markersize=2)
-# plt.plot(signal_data['Milliseconds'], [0]*len(signal_data), 'r.', label='Signal Data', markersize=4)
-# plt.yticks([0, 1], ['Signal Data', 'Odom Data'])
-# plt.xlabel('Timestamp')
-# plt.title('Timestamp Comparison between Odom and Signal Data')
-# plt.legend()
-# plt.grid(True)
-# plt.show()
+plt.figure(figsize=(12, 6))
+plt.plot(odom_data['timestamp'], [1]*len(odom_data), 'b.', label='Odom Data', markersize=2)
+plt.plot(signal_data['Milliseconds'], [0]*len(signal_data), 'r.', label='Signal Data', markersize=4)
+plt.yticks([0, 1], ['Signal Data', 'Odom Data'])
+plt.xlabel('Timestamp')
+plt.title('Timestamp Comparison between Odom and Signal Data')
+plt.legend()
+plt.grid(True)
+plt.show()
 
 # Merge the data with allowable timestamp error
 tolerance = pd.Timedelta(milliseconds=1000)
@@ -58,6 +57,15 @@ result_data.rename(columns={'Signal Strength (dBm)': 'signal_strength'}, inplace
 
 # Convert to list of dictionaries
 formatted_data = result_data.to_dict('records')
+
+# Print data counts before and after merging
+print("\nData counts before merging:")
+print(f"Signal data points: {len(signal_data)}")
+print(f"Odom data points: {len(odom_data)}")
+print("\nData counts after merging:")
+print(f"Merged data points: {len(formatted_data)}")
+print(f"Data points reduction: {len(signal_data) - len(formatted_data)} ({((len(signal_data) - len(formatted_data))/len(signal_data)*100):.1f}%)")
+
 
 # Save to JSON
 with open(output_file, 'w') as f:
