@@ -59,7 +59,7 @@ plt.legend(handles=legend_elements, loc="upper right", title="Signal Quality")
 
 
 # Choose random points to display signal strength
-for i in [24]:
+for i in [24, 100, 500, 800]:
     plt.text(
         x[i], y[i], f"{signal_strength[i]:.1f} dBm", fontsize=10, ha='center', va='center', color="black"
     )
