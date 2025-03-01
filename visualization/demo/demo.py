@@ -23,6 +23,10 @@ if use_background:
     img = mpimg.imread('../data/map.jpg')
     plt.imshow(img, extent=[-1, 8, -2, 5], origin='lower', aspect='auto', alpha=0.8)
 
+# if use_background:
+#     img = mpimg.imread('../data/map_145.jpg')
+#     plt.imshow(img, extent=[-1, 8, -2, 5], origin='lower', aspect='auto', alpha=0.5)
+
 # scatter = plt.scatter(x, y, c=signal_strength, s=sizes, cmap='viridis', alpha=0.8)
 scatter = plt.scatter(x, y, c=signal_strength, s=sizes, cmap='viridis', vmin=0, vmax=1)
 plt.colorbar(scatter, label="Signal Strength")
