@@ -56,8 +56,8 @@ roslaunch jetauto_navigation publish_point.launch
 ```
 map will be saved on /home/jetauto/.ros/rtabmap.db
 
-打开 Rtabmap_cloud 选项卡,将 Download namespace 内容修改为 robot_1/rtabmap
----
+**open up `Rtabmap_cloud`,change `Download namespace` to `robot_1/rtabmap`
+**---
 
 ## Visualization Demo
 
